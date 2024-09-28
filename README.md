@@ -5,7 +5,8 @@
 
 You'll need the following things:
 
-- A Tailscale tailnet containing one or more machines running the Docker daemon, and an [OAuth client](https://tailscale.com/kb/1215/oauth-clients#setting-up-an-oauth-client).
+- A Tailscale tailnet with one or more machines running the Docker daemon.
+- An [OAuth client](https://tailscale.com/kb/1215/oauth-clients#setting-up-an-oauth-client) configured on the tailnet.
 - [Tailscale SSH](https://tailscale.com/kb/1193/tailscale-ssh) needs to be enabled on the tailnet, with [appropriate `accept` ACLs](https://tailscale.com/kb/1193/tailscale-ssh#action) configured. `accept` must be used for SSH ACLs, `check` is **not** supported. Tailscale ephemeral nodes are automatically tagged with the value from `ts-tag`, this tag can be used with ACLs.
 - A [GitHub App](https://docs.github.com/en/actions/hosting-your-own-runners/managing-self-hosted-runners-with-actions-runner-controller/authenticating-to-the-github-api#authenticating-arc-with-a-github-app) for authenticating ephemeral runners.
 
