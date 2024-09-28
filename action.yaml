@@ -41,6 +41,10 @@ inputs:
   ts-oauth-secret:
     description: 'Your Tailscale OAuth Client Secret.'
     required: true
+  ts-tag:
+    default: 'github-actions'
+    description: 'A unique tag to apply to ephemeral Tailscale nodes.'
+    required: false
   ts-version:
     default: '1.74.1'
     description: 'The Tailscale client version to use.'
@@ -54,7 +58,7 @@ runs:
       with:
         oauth-client-id: ${{ inputs.ts-oauth-client-id }}
         oauth-secret: ${{ inputs.ts-oauth-secret }}
-        tags: tag:ci
+        tags: tag:${{ inputs.ts-tag }}
         version: ${{ inputs.ts-version }}
     - name: Update SSH known hosts
       id: update-known-hosts
