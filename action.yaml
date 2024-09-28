@@ -42,49 +42,49 @@ inputs:
     description: 'The Tailscale client version to use.'
     required: false
 runs:
-    steps:
-      - name: Create ephemeral Tailscale node
-        id: create-ts-node
-        uses: tailscale/github-action@v2
-        with:
-          oauth-client-id: ${{ inputs.ts-oauth-client-id }}
-          oauth-secret: ${{ inputs.ts-oauth-secret }}
-          tags: tag:ci
-          version: ${{ inputs.ts-version }}
-      - name: Update SSH known hosts
-        id: update-known-hosts
-        env:
-          SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
-        run: |
-          set -ex
-          mkdir ~/.ssh
-          chmod 700 ~/.ssh
-          cat << EOF >> ~/.ssh/known_hosts
-          $SSH_KNOWN_HOSTS
-          EOF
-          chmod 600 ~/.ssh/known_hosts
-      - name: Start ephemeral runner container
-        id: start-runner
-        run: |
-          set -ex
-          WORKDIR=${{ inputs.runner-working-dir }}/$(uuidgen)
-          ssh ${{ inputs.ssh-user }}@${{ inputs.ssh-host }} docker container run \
-            --cgroupns=private \
-            --cgroup-parent=/actions-runners \
-            --detach \
-            --env=APP_ID=${{ secrets.GH_APP_ID }} \
-            --env=APP_LOGIN=${{ inputs.gh-app-login }} \
-            '--env=APP_PRIVATE_KEY="${{ inputs.gh-app-private-key }}"' \
-            --env=EPHEMERAL=true \
-            --env=LABELS=${{ inputs.runner-labels }} \
-            --env=REPO_URL=${{ github.server_url }}/${{ github.repository }} \
-            --env=RUNNER_WORKDIR=$WORKDIR/work \
-            --network=${{ inputs.runner-network }} \
-            --restart=no \
-            --rm \
-            --security-opt=label=disable \
-            --stop-signal=SIGTERM \
-            --stop-timeout=30 \
-            --volume /var/run/docker.sock:/var/run/docker.sock \
-            --volume $WORKDIR:$WORKDIR \
-              ghcr.io/myoung34/docker-github-actions-runner:debian-bookworm
+  steps:
+    - name: Create ephemeral Tailscale node
+      id: create-ts-node
+      uses: tailscale/github-action@v2
+      with:
+        oauth-client-id: ${{ inputs.ts-oauth-client-id }}
+        oauth-secret: ${{ inputs.ts-oauth-secret }}
+        tags: tag:ci
+        version: ${{ inputs.ts-version }}
+    - name: Update SSH known hosts
+      id: update-known-hosts
+      env:
+        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+      run: |
+        set -ex
+        mkdir ~/.ssh
+        chmod 700 ~/.ssh
+        cat << EOF >> ~/.ssh/known_hosts
+        $SSH_KNOWN_HOSTS
+        EOF
+        chmod 600 ~/.ssh/known_hosts
+    - name: Start ephemeral runner container
+      id: start-runner
+      run: |
+        set -ex
+        WORKDIR=${{ inputs.runner-working-dir }}/$(uuidgen)
+        ssh ${{ inputs.ssh-user }}@${{ inputs.ssh-host }} docker container run \
+          --cgroupns=private \
+          --cgroup-parent=/actions-runners \
+          --detach \
+          --env=APP_ID=${{ secrets.GH_APP_ID }} \
+          --env=APP_LOGIN=${{ inputs.gh-app-login }} \
+          '--env=APP_PRIVATE_KEY="${{ inputs.gh-app-private-key }}"' \
+          --env=EPHEMERAL=true \
+          --env=LABELS=${{ inputs.runner-labels }} \
+          --env=REPO_URL=${{ github.server_url }}/${{ github.repository }} \
+          --env=RUNNER_WORKDIR=$WORKDIR/work \
+          --network=${{ inputs.runner-network }} \
+          --restart=no \
+          --rm \
+          --security-opt=label=disable \
+          --stop-signal=SIGTERM \
+          --stop-timeout=30 \
+          --volume /var/run/docker.sock:/var/run/docker.sock \
+          --volume $WORKDIR:$WORKDIR \
+            ghcr.io/myoung34/docker-github-actions-runner:debian-bookworm
