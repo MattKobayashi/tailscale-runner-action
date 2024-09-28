@@ -4,6 +4,9 @@ description: 'Start an ephemeral GitHub Actions runner in a Docker container via
 branding:
   icon: 'terminal'
 inputs:
+  gh-app-id:
+    description: 'The app ID for your GitHub App.'
+    required: true
   gh-app-login:
     description: 'The login name for your GitHub App.'
     required: true
@@ -42,6 +45,7 @@ inputs:
     description: 'The Tailscale client version to use.'
     required: false
 runs:
+  using: "composite"
   steps:
     - name: Create ephemeral Tailscale node
       id: create-ts-node
@@ -54,7 +58,7 @@ runs:
     - name: Update SSH known hosts
       id: update-known-hosts
       env:
-        SSH_KNOWN_HOSTS: ${{ secrets.SSH_KNOWN_HOSTS }}
+        SSH_KNOWN_HOSTS: ${{ inputs.ssh-known-hosts }}
       run: |
         set -ex
         mkdir ~/.ssh
@@ -63,6 +67,7 @@ runs:
         $SSH_KNOWN_HOSTS
         EOF
         chmod 600 ~/.ssh/known_hosts
+      shell: bash
     - name: Start ephemeral runner container
       id: start-runner
       run: |
@@ -72,7 +77,7 @@ runs:
           --cgroupns=private \
           --cgroup-parent=/actions-runners \
           --detach \
-          --env=APP_ID=${{ secrets.GH_APP_ID }} \
+          --env=APP_ID=${{ inputs.gh-app-id }} \
           --env=APP_LOGIN=${{ inputs.gh-app-login }} \
           '--env=APP_PRIVATE_KEY="${{ inputs.gh-app-private-key }}"' \
           --env=EPHEMERAL=true \
@@ -88,3 +93,4 @@ runs:
           --volume /var/run/docker.sock:/var/run/docker.sock \
           --volume $WORKDIR:$WORKDIR \
             ghcr.io/myoung34/docker-github-actions-runner:debian-bookworm
+      shell: bash
