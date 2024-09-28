@@ -3,6 +3,10 @@
 
 ## Inputs
 
+## `gh-app-id`
+
+**Required** The app ID for your GitHub App.
+
 ## `gh-app-login`
 
 **Required** The login name for your GitHub App.
