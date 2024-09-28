@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.1](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.0...v1.0.1) (2024-09-28)
+
+
+### Bug Fixes
+
+* Add color label ([#5](https://github.com/MattKobayashi/tailscale-runner-action/issues/5)) ([9d0b8af](https://github.com/MattKobayashi/tailscale-runner-action/commit/9d0b8af39ccfa2b4a253f6c56beeb37f91c8317a))
+
 ## 1.0.0 (2024-09-28)
 
 
