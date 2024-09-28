@@ -3,6 +3,7 @@ name: 'Tailscale Runner Action'
 description: 'Start an ephemeral GitHub Actions runner in a Docker container via Tailscale'
 branding:
   icon: 'terminal'
+  color: 'purple'
 inputs:
   gh-app-id:
     description: 'The app ID for your GitHub App.'
