@@ -67,32 +67,32 @@ jobs:
 - Runners created by this action are capable of executing `docker run` actions, i.e. for CI testing of images. Test containers should be executed with the `--rm` flag and stopped at the end of the workflow using `docker container stop` to avoid zombie containers being left running on the host. Images should also be removed using `docker image rm` to avoid filling the host's disk with cached images. An example of how to achieve this can be seen below:
 
 	```
-		  # Build and export image to Docker daemon
-	      # https://github.com/docker/build-push-action
-	      - name: Build and export to Docker
-	        uses: docker/build-push-action@v6.8.0
-	        with:
-	          load: true
-	          tags: "${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test"
-	      # Install uuid-runtime package
-	      - name: Install `uuid-runtime`
-	        run: |
-	          set -x
-	          apt-get --yes install uuid-runtime
-	      # Test the built image
-	      - name: Test image
-	        run: |
-	          set -x
-	          CONTAINER_ID="$(uuidgen)"
-	          docker container run --attach=stdout --attach=stderr --init --name=$CONTAINER_ID --rm ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test &
-	          sleep 60
-	          docker container stop $CONTAINER_ID
-	      # Remove the test image
-	      - name: Remove test image
-	        if: ${{ !cancelled() }}
-	        run: |
-	          set -x
-	          docker image rm --force ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test
+	# Build and export image to Docker daemon
+	# https://github.com/docker/build-push-action
+	- name: Build and export to Docker
+	  uses: docker/build-push-action@v6.8.0
+	  with:
+	    load: true
+	    tags: "${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test"
+	# Install uuid-runtime package
+	- name: Install `uuid-runtime`
+	  run: |
+	    set -x
+	    apt-get --yes install uuid-runtime
+	# Test the built image
+	- name: Test image
+	  run: |
+	    set -x
+	    CONTAINER_ID="$(uuidgen)"
+	    docker container run --attach=stdout --attach=stderr --init --name=$CONTAINER_ID --rm ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test &
+	    sleep 60
+	    docker container stop $CONTAINER_ID
+	# Remove the test image
+	- name: Remove test image
+	  if: ${{ !cancelled() }}
+	  run: |
+	    set -x
+	    docker image rm --force ${{ env.REPO_NAME }}/${{ env.IMAGE_NAME }}:test
 	```
 
 ## Inputs
