@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.0.2](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.1...v1.0.2) (2024-09-28)
+
+
+### Bug Fixes
+
+* Make Tailscale node tag configurable ([#7](https://github.com/MattKobayashi/tailscale-runner-action/issues/7)) ([2d03511](https://github.com/MattKobayashi/tailscale-runner-action/commit/2d035113e1388d2968258bd519fa29d32a17ec9b))
+
 ## [1.0.1](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.0...v1.0.1) (2024-09-28)
 
 
