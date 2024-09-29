@@ -29,9 +29,6 @@ inputs:
   ssh-host:
     description: 'The Tailscale hostname or Tailscale IP address of your Docker host.'
     required: true
-  ssh-known-hosts:
-    description: 'A list of entries to add to `~/.ssh/known_hosts`.'
-    required: true
   ssh-user:
     description: 'The SSH username to use when logging into your Docker host.'
     required: true
@@ -60,18 +57,11 @@ runs:
         oauth-secret: ${{ inputs.ts-oauth-secret }}
         tags: tag:${{ inputs.ts-tag }}
         version: ${{ inputs.ts-version }}
-    - name: Update SSH known hosts
-      id: update-known-hosts
-      env:
-        SSH_KNOWN_HOSTS: ${{ inputs.ssh-known-hosts }}
+    - name: Run `ssh-keyscan`
+      id: ssh-keyscan
       run: |
         set -ex
-        mkdir ~/.ssh
-        chmod 700 ~/.ssh
-        cat << EOF >> ~/.ssh/known_hosts
-        $SSH_KNOWN_HOSTS
-        EOF
-        chmod 600 ~/.ssh/known_hosts
+        ssh-keyscan ${{ inputs.ssh-host }}
       shell: bash
     - name: Start ephemeral runner container
       id: start-runner
