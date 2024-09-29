@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.2...v1.1.0) (2024-09-29)
+
+
+### Features
+
+* Use `ssh-keyscan` ([#13](https://github.com/MattKobayashi/tailscale-runner-action/issues/13)) ([64677ed](https://github.com/MattKobayashi/tailscale-runner-action/commit/64677edd1e06094de35e38ddc2ba0f22d94148b1))
+
 ## [1.0.2](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.1...v1.0.2) (2024-09-28)
 
 
