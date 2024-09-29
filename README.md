@@ -27,7 +27,6 @@ jobs:
           gh-app-login: MattKobayashi
           gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           ssh-host: 192.0.2.1
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           ssh-user: matthew
           ts-oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           ts-oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
@@ -56,7 +55,6 @@ jobs:
           gh-app-login: MattKobayashi
           gh-app-private-key: ${{ secrets.GH_APP_PRIVATE_KEY }}
           ssh-host: 192.0.2.1
-          ssh-known-hosts: ${{ secrets.SSH_KNOWN_HOSTS }}
           ssh-user: matthew
           ts-oauth-client-id: ${{ secrets.TS_OAUTH_CLIENT_ID }}
           ts-oauth-secret: ${{ secrets.TS_OAUTH_SECRET }}
@@ -125,10 +123,6 @@ A path on the host for the runner working directory. Defaults to `/tmp/actions-r
 ### `ssh-host`
 
 **Required** The Tailscale hostname or Tailscale IP address of your Docker host.
-
-### `ssh-known-hosts`
-
-**Required** A list of entries to add to `~/.ssh/known_hosts`.
 
 ### `ssh-user`
 
