@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.0...v1.1.1) (2024-10-04)
+
+
+### Bug Fixes
+
+* Pin `docker-github-actions-runner`container version ([d1e1546](https://github.com/MattKobayashi/tailscale-runner-action/commit/d1e1546ebbb76fb9e255d28f71c54750527b5e6c))
+
 ## [1.1.0](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.0.2...v1.1.0) (2024-09-29)
 
 
