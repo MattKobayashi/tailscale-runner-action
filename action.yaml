@@ -89,5 +89,5 @@ runs:
           --stop-timeout=30 \
           --volume /var/run/docker.sock:/var/run/docker.sock \
           --volume $WORKDIR:$WORKDIR \
-            ghcr.io/myoung34/docker-github-actions-runner:debian-bookworm
+            ghcr.io/myoung34/docker-github-actions-runner:2.320.0-debian-bookworm
       shell: bash
