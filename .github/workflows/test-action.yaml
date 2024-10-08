@@ -18,8 +18,10 @@ jobs:
           test
         ]
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
       - name: Create runner
-        uses: MattKobayashi/tailscale-runner-action@${{ github.head_ref }}
+        uses: ./
         with:
           gh-app-id: ${{ secrets.GH_APP_ID }}
           gh-app-login: MattKobayashi
