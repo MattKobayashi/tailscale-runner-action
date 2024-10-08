@@ -120,6 +120,10 @@ The name of a custom Docker network to attach the runner to. Defaults to `bridge
 
 A path on the host for the runner working directory. Defaults to `/tmp/actions-runners`.
 
+### `ssh-keyscan-timeout`
+
+The timeout value for `ssh-keyscan` in seconds. Defaults to `30`.
+
 ### `ssh-host`
 
 **Required** The Tailscale hostname or Tailscale IP address of your Docker host.
