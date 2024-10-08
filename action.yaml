@@ -1,50 +1,54 @@
 ---
-name: 'Tailscale Runner Action'
-description: 'Start an ephemeral GitHub Actions runner in a Docker container via Tailscale'
+name: "Tailscale Runner Action"
+description: "Start an ephemeral GitHub Actions runner in a Docker container via Tailscale"
 branding:
-  icon: 'terminal'
-  color: 'purple'
+  icon: "terminal"
+  color: "purple"
 inputs:
   gh-app-id:
-    description: 'The app ID for your GitHub App.'
+    description: "The app ID for your GitHub App."
     required: true
   gh-app-login:
-    description: 'The login name for your GitHub App.'
+    description: "The login name for your GitHub App."
     required: true
   gh-app-private-key:
-    description: 'The private key for your GitHub App.'
+    description: "The private key for your GitHub App."
     required: true
   runner-labels:
-    default: 'linux,x64'
-    description: 'Labels to be added to the runner.'
+    default: "linux,x64"
+    description: "Labels to be added to the runner."
     required: false
   runner-network:
-    default: 'bridge'
-    description: 'The name of a custom Docker network to attach the runner to.'
+    default: "bridge"
+    description: "The name of a custom Docker network to attach the runner to."
     required: false
   runner-working-dir:
-    default: '/tmp/actions-runners'
-    description: 'A path on the host for the runner working directory.'
+    default: "/tmp/actions-runners"
+    description: "A path on the host for the runner working directory."
     required: false
   ssh-host:
-    description: 'The Tailscale hostname or Tailscale IP address of your Docker host.'
+    description: "The Tailscale hostname or Tailscale IP address of your Docker host."
     required: true
+  ssh-keyscan-timeout:
+    default: "30"
+    description: "The timeout value for `ssh-keyscan` in seconds."
+    required: false
   ssh-user:
-    description: 'The SSH username to use when logging into your Docker host.'
+    description: "The SSH username to use when logging into your Docker host."
     required: true
   ts-oauth-client-id:
-    description: 'Your Tailscale OAuth Client ID.'
+    description: "Your Tailscale OAuth Client ID."
     required: true
   ts-oauth-secret:
-    description: 'Your Tailscale OAuth Client Secret.'
+    description: "Your Tailscale OAuth Client Secret."
     required: true
   ts-tag:
-    default: 'github-actions'
-    description: 'A unique tag to apply to ephemeral Tailscale nodes.'
+    default: "github-actions"
+    description: "A unique tag to apply to ephemeral Tailscale nodes."
     required: false
   ts-version:
-    default: '1.74.1'
-    description: 'The Tailscale client version to use.'
+    default: "1.74.1"
+    description: "The Tailscale client version to use."
     required: false
 runs:
   using: "composite"
@@ -63,7 +67,7 @@ runs:
         set -ex
         mkdir ~/.ssh
         chmod 700 ~/.ssh
-        ssh-keyscan -T 30 ${{ inputs.ssh-host }} >> ~/.ssh/known_hosts
+        ssh-keyscan -T ${{ inputs.ssh-keyscan-timeout }} ${{ inputs.ssh-host }} >> ~/.ssh/known_hosts
       shell: bash
     - name: Start ephemeral runner container
       id: start-runner
