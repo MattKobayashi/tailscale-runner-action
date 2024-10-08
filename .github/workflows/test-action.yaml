@@ -18,6 +18,8 @@ jobs:
           test
         ]
     steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4.2.1
       - name: Create runner
         uses: ./
         with:
