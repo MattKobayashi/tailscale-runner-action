@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.3](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.2...v1.1.3) (2024-10-08)
+
+
+### Bug Fixes
+
+* Add `ssh-keyscan-timeout` to README ([#22](https://github.com/MattKobayashi/tailscale-runner-action/issues/22)) ([a566824](https://github.com/MattKobayashi/tailscale-runner-action/commit/a56682459cb80c26eaa7e3b7b75926de36257fa9))
+* Make `ssh-keyscan` timeout value configurable ([#20](https://github.com/MattKobayashi/tailscale-runner-action/issues/20)) ([32b77f1](https://github.com/MattKobayashi/tailscale-runner-action/commit/32b77f16912718f98c5f87c2d549ddc639d07cee))
+
 ## [1.1.2](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.1...v1.1.2) (2024-10-08)
 
 
