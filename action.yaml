@@ -63,7 +63,7 @@ runs:
         set -ex
         mkdir ~/.ssh
         chmod 700 ~/.ssh
-        ssh-keyscan ${{ inputs.ssh-host }} >> ~/.ssh/known_hosts
+        ssh-keyscan -T 30 ${{ inputs.ssh-host }} >> ~/.ssh/known_hosts
       shell: bash
     - name: Start ephemeral runner container
       id: start-runner
