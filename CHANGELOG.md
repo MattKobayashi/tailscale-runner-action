@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.4](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.3...v1.1.4) (2024-10-15)
+
+
+### Bug Fixes
+
+* Don't error when ~/.ssh directory exists ([#23](https://github.com/MattKobayashi/tailscale-runner-action/issues/23)) ([b312c64](https://github.com/MattKobayashi/tailscale-runner-action/commit/b312c6452f8930293dfc7a310ae8a72ee56dab1d))
+
 ## [1.1.3](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.2...v1.1.3) (2024-10-08)
 
 
