@@ -65,7 +65,7 @@ runs:
       id: ssh-keyscan
       run: |
         set -ex
-        mkdir ~/.ssh
+        mkdir -p ~/.ssh
         chmod 700 ~/.ssh
         ssh-keyscan -T ${{ inputs.ssh-keyscan-timeout }} ${{ inputs.ssh-host }} >> ~/.ssh/known_hosts
       shell: bash
