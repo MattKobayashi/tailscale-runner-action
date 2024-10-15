@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.5](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.4...v1.1.5) (2024-10-15)
+
+
+### Bug Fixes
+
+* Bump default Tailscale version to 1.76.0 ([#25](https://github.com/MattKobayashi/tailscale-runner-action/issues/25)) ([a28f0b9](https://github.com/MattKobayashi/tailscale-runner-action/commit/a28f0b9d48bdd1fa221247aa18e87af154c218b0))
+
 ## [1.1.4](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.3...v1.1.4) (2024-10-15)
 
 
