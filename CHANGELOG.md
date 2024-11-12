@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.1](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.0...v1.2.1) (2024-11-12)
+
+
+### Bug Fixes
+
+* **tailscale:** Configurable check timeout ([#35](https://github.com/MattKobayashi/tailscale-runner-action/issues/35)) ([b771a39](https://github.com/MattKobayashi/tailscale-runner-action/commit/b771a393a87253f39b2f69abfb71b3214cc1f5d3))
+
 ## [1.2.0](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.6...v1.2.0) (2024-11-12)
 
 
