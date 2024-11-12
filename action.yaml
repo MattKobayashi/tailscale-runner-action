@@ -69,7 +69,7 @@ runs:
       id: check-connectivity
       run: |
         set -ex
-        timeout ${{ inputs.ts-check-timeout }} bash -c 'until tailscale ping ${{ inputs.ssh-host }}; do sleep 2; done'
+        tailscale ping ${{ inputs.ssh-host }}
       shell: bash
     - name: Run `ssh-keyscan`
       id: ssh-keyscan
