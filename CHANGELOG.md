@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.0](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.6...v1.2.0) (2024-11-12)
+
+
+### Features
+
+* **action:** Add connectivity check ([#33](https://github.com/MattKobayashi/tailscale-runner-action/issues/33)) ([afb0d6c](https://github.com/MattKobayashi/tailscale-runner-action/commit/afb0d6c417b2c9e6b29ab7babb0206237d258c22))
+
 ## [1.1.6](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.1.5...v1.1.6) (2024-11-12)
 
 
