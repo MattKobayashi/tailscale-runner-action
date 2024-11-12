@@ -61,6 +61,12 @@ runs:
         oauth-secret: ${{ inputs.ts-oauth-secret }}
         tags: tag:${{ inputs.ts-tag }}
         version: ${{ inputs.ts-version }}
+    - name: Check Tailscale connectivity
+      id: check-connectivity
+      run: |
+        set -ex
+        timeout 30 bash -c 'until tailscale ping ${{ inputs.ssh-host }}; do sleep 2; done'
+      shell: bash
     - name: Run `ssh-keyscan`
       id: ssh-keyscan
       run: |
