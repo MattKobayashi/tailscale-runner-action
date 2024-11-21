@@ -24,13 +24,13 @@ inputs:
     required: false
   runner-working-dir:
     default: "/tmp/actions-runners"
-    description: "A path on the host for the runner working directory."
+    description: "A path on the Docker host for the runner working directory."
     required: false
   ssh-host:
     description: "The Tailscale hostname or Tailscale IP address of your Docker host."
     required: true
   ssh-keyscan-timeout:
-    default: "30"
+    default: "60"
     description: "The timeout value for `ssh-keyscan` in seconds."
     required: false
   ssh-user:
@@ -61,19 +61,6 @@ runs:
         oauth-secret: ${{ inputs.ts-oauth-secret }}
         tags: tag:${{ inputs.ts-tag }}
         version: ${{ inputs.ts-version }}
-    - name: Check Tailscale connectivity
-      id: check-connectivity
-      run: |
-        set -ex
-        for i in {1..3}; do
-          sleep 10
-          [ "$(tailscale status --json | jq -r '.Self.Online')" = 'true' ] && echo "Check $i: Tailscale is online!" && exit 0 || echo "Check $i: Tailscale is offline!"
-          if [ $i = 3 ]; then
-            echo "ERROR: Tailscale is offline after 3 checks, exiting..."
-            exit 1
-          fi
-        done
-      shell: bash
     - name: Run `ssh-keyscan`
       id: ssh-keyscan
       run: |
