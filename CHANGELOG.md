@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.4](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.3...v1.2.4) (2024-11-21)
+
+
+### Bug Fixes
+
+* **check:** Use tailscale status --json ([#42](https://github.com/MattKobayashi/tailscale-runner-action/issues/42)) ([47787da](https://github.com/MattKobayashi/tailscale-runner-action/commit/47787dac696c245882a317c0e46b88f6c144dac0))
+
 ## [1.2.3](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.2...v1.2.3) (2024-11-21)
 
 
