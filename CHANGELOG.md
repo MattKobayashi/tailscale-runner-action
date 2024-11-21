@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.3](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.2...v1.2.3) (2024-11-21)
+
+
+### Bug Fixes
+
+* **ping:** Set better ping options ([#39](https://github.com/MattKobayashi/tailscale-runner-action/issues/39)) ([0295eac](https://github.com/MattKobayashi/tailscale-runner-action/commit/0295eac169a1e8f2ff4e2afa7362323faa95462b))
+
 ## [1.2.2](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.1...v1.2.2) (2024-11-12)
 
 
