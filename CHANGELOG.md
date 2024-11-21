@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.2.5](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.4...v1.2.5) (2024-11-21)
+
+
+### Bug Fixes
+
+* **check:** Remove check ([#44](https://github.com/MattKobayashi/tailscale-runner-action/issues/44)) ([752b886](https://github.com/MattKobayashi/tailscale-runner-action/commit/752b886eb85c60b46bc62915ddf5b245aabb52fa))
+
 ## [1.2.4](https://github.com/MattKobayashi/tailscale-runner-action/compare/v1.2.3...v1.2.4) (2024-11-21)
 
 
