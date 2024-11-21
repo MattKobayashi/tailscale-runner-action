@@ -70,7 +70,7 @@ runs:
       run: |
         set -ex
         sleep 10
-        tailscale ping --c=30 --timeout=1s --until-direct --verbose ${{ inputs.ssh-host }}
+        [ "$(tailscale status --json | jq -r .Self.Online)" = 'true' ] && echo 'Tailscale is online!' || echo 'ERROR: Tailscale is offline!'
       shell: bash
     - name: Run `ssh-keyscan`
       id: ssh-keyscan
