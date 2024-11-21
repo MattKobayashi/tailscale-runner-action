@@ -69,6 +69,7 @@ runs:
       id: check-connectivity
       run: |
         set -ex
+        sleep 5
         tailscale ping --c=30 --timeout=1s --until-direct --verbose ${{ inputs.ssh-host }}
       shell: bash
     - name: Run `ssh-keyscan`
