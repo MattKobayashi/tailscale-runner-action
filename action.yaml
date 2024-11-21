@@ -24,7 +24,7 @@ inputs:
     required: false
   runner-working-dir:
     default: "/tmp/actions-runners"
-    description: "A path on the host for the runner working directory."
+    description: "A path on the Docker host for the runner working directory."
     required: false
   ssh-host:
     description: "The Tailscale hostname or Tailscale IP address of your Docker host."
