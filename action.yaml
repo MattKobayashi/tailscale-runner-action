@@ -30,7 +30,7 @@ inputs:
     description: "The Tailscale hostname or Tailscale IP address of your Docker host."
     required: true
   ssh-keyscan-timeout:
-    default: "30"
+    default: "60"
     description: "The timeout value for `ssh-keyscan` in seconds."
     required: false
   ssh-user:
