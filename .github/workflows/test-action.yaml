@@ -1,11 +1,9 @@
 ---
 name: Test `tailscale-runner-action`
-
 on:
   pull_request:
     branches:
       - main
-
 jobs:
   create-runners:
     name: Create self-hosted Actions runner
